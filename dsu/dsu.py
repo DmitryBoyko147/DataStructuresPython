@@ -21,6 +21,8 @@ class DSU:
     def union(self, x: int, y: int) -> int:
         x_root = self.find(x)
         y_root = self.find(y)
+        if x_root == y_root:
+            return x_root
         if self.ranks[x_root] < self.ranks[y_root]:
             x_root, y_root = y_root, x_root
         self.array[y_root] = x_root
